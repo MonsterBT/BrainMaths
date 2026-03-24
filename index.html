@@ -7,10 +7,6 @@
 <title>Addition & Subtraction Brain Trainer</title>
 <style>
   :root {
-    --bg:      #0d1b2e;
-    --card:    #1a2d45;
-    --card2:   #1e3350;
-    --border:  #2a4468;
     --primary: #4fc3f7;
     --pgrad:   linear-gradient(135deg,#0288d1,#4fc3f7);
     --accent:  #ffd54f;
@@ -18,6 +14,8 @@
     --danger:  #ef5350;
     --text:    #e8f4fd;
     --muted:   #a8c0ff;
+    --card:    rgba(13,27,62,0.75);
+    --border:  rgba(255,255,255,0.15);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
@@ -40,45 +38,45 @@
 .page-icon  { font-size: 3rem; margin-bottom: 6px; }
 .page-title { font-size: 2rem; font-weight: 900; color: #ffffff; margin-bottom: 4px; text-align: center; }
 .page-sub   { color: var(–muted); font-size: .95rem; margin-bottom: 26px; text-align: center; }
-.section-label { font-size: .68rem; text-transform: uppercase; letter-spacing: 2px; color: #a8c0ff; margin: 18px 0 10px; width: 100%; max-width: 460px; font-weight: 700; }
+.section-label { font-size: .68rem; text-transform: uppercase; letter-spacing: 2px; color: #a8c0ff; font-weight: 700; margin: 18px 0 10px; width: 100%; max-width: 460px; }
 
 .btn { border: none; border-radius: 14px; cursor: pointer; font-size: 1rem; font-weight: 700; padding: 14px 26px; transition: all .18s; }
 .btn-primary   { background: var(–pgrad); color: #fff; box-shadow: 0 4px 14px rgba(79,195,247,.35); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(79,195,247,.5); }
-.btn-secondary { background: rgba(13,27,62,0.7); color: #ffffff; border: 1px solid rgba(255,255,255,0.18); }
+.btn-secondary { background: var(–card); color: #ffffff; border: 1px solid var(–border); }
 .btn-secondary:hover { background: rgba(79,195,247,0.15); border-color: var(–primary); color: var(–primary); }
 .btn-danger    { background: linear-gradient(135deg,#b71c1c,#ef5350); color: #fff; }
 
 /* ══ HOME SCREEN ══ */
 .home-wrap { width: 100%; max-width: 420px; }
-.players-label { font-size: .68rem; text-transform: uppercase; letter-spacing: 2px; color: var(–muted); margin-bottom: 12px; }
+.players-label { font-size: .68rem; text-transform: uppercase; letter-spacing: 2px; color: #a8c0ff; font-weight: 700; margin-bottom: 12px; }
 .add-row { display: flex; gap: 10px; margin-bottom: 16px; }
-.add-input { flex: 1; background: rgba(255,255,255,0.07); border: 2px solid rgba(255,255,255,0.15); border-radius: 14px; color: #ffffff; font-size: 1rem; padding: 13px 16px; outline: none; transition: border-color .2s; }
+.add-input { flex: 1; background: var(–card); border: 2px solid var(–border); border-radius: 14px; color: #ffffff; font-size: 1rem; padding: 13px 16px; outline: none; transition: border-color .2s; }
 .add-input:focus { border-color: var(–primary); }
 .add-input::placeholder { color: rgba(255,255,255,0.35); }
-.btn-add { background: var(–pgrad); border: none; border-radius: 14px; color: #ffffff !important; cursor: pointer; font-size: 1rem; font-weight: 700; padding: 13px 22px; white-space: nowrap; transition: all .18s; }
+.btn-add { background: var(–pgrad); border: none; border-radius: 14px; color: #ffffff; cursor: pointer; font-size: 1rem; font-weight: 700; padding: 13px 22px; white-space: nowrap; transition: all .18s; box-shadow: 0 4px 14px rgba(79,195,247,.35); }
 .btn-add:hover { transform: translateY(-2px); }
 
 .player-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; max-height: 340px; overflow-y: auto; }
 .player-card { display: flex; align-items: center; gap: 14px; background: var(–card); border: 2px solid var(–border); border-radius: 16px; padding: 13px 14px; cursor: pointer; transition: all .18s; }
 .player-card:hover { border-color: var(–primary); }
-.player-card.selected { border-color: var(–primary); background: var(–card2); box-shadow: 0 0 0 1px var(–primary); }
+.player-card.selected { border-color: var(–primary); background: rgba(79,195,247,0.12); box-shadow: 0 0 0 1px var(–primary); }
 .player-avatar { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; border: 2px solid var(–border); flex-shrink: 0; }
 .player-card.selected .player-avatar { border-color: var(–primary); }
 .player-info { flex: 1; }
 .player-name-text { font-weight: 800; font-size: 1rem; color: #ffffff; }
 .player-stats { font-size: .75rem; color: var(–muted); margin-top: 3px; }
 .player-score-badge { font-size: 1.1rem; font-weight: 900; color: var(–accent); margin-right: 4px; }
-.btn-delete { background: none; border: none; cursor: pointer; font-size: 1.1rem; color: #6a85a8; padding: 6px; border-radius: 8px; transition: color .18s; }
+.btn-delete { background: none; border: none; cursor: pointer; font-size: 1.1rem; color: rgba(255,255,255,0.3); padding: 6px; border-radius: 8px; transition: color .18s; }
 .btn-delete:hover { color: var(–danger); }
 .no-players { text-align: center; color: var(–muted); padding: 24px 0; font-size: .95rem; }
 
 .home-actions { display: flex; flex-direction: column; gap: 10px; width: 100%; }
-.btn-play { background: var(–pgrad); border: none; border-radius: 16px; color: #fff; cursor: pointer; font-size: 1.1rem; font-weight: 800; padding: 16px; width: 100%; transition: all .18s; }
-.btn-play:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,195,247,.4); }
-.btn-play:disabled { opacity: .4; cursor: not-allowed; transform: none; }
-.btn-lb { background: var(–card2); border: 1px solid var(–border); border-radius: 16px; color: var(–text); cursor: pointer; font-size: 1rem; font-weight: 700; padding: 14px; width: 100%; transition: all .18s; }
-.btn-lb:hover { border-color: var(–primary); color: var(–primary); }
+.btn-play { background: var(–pgrad); border: none; border-radius: 16px; color: #fff; cursor: pointer; font-size: 1.1rem; font-weight: 800; padding: 16px; width: 100%; transition: all .18s; box-shadow: 0 4px 14px rgba(79,195,247,.35); }
+.btn-play:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(79,195,247,.5); }
+.btn-play:disabled { opacity: .35; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-lb { background: var(–card); border: 1px solid var(–border); border-radius: 16px; color: #ffffff; cursor: pointer; font-size: 1rem; font-weight: 700; padding: 14px; width: 100%; transition: all .18s; }
+.btn-lb:hover { border-color: var(–primary); color: var(–primary); background: rgba(79,195,247,0.1); }
 
 /* ══ MENU SCREEN ══ */
 .menu-wrap { width: 100%; max-width: 460px; }
@@ -99,13 +97,13 @@
 .diff-extreme { background: linear-gradient(135deg,#6a1b9a,#ce93d8); }
 
 .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.mode-btn { background: var(–card2); border: 2px solid var(–border); border-radius: 14px; cursor: pointer; padding: 16px 14px; font-size: .92rem; font-weight: 700; color: var(–text); transition: all .18s; text-align: left; }
-.mode-btn:hover, .mode-btn.selected { border-color: var(–primary); background: rgba(79,195,247,.1); color: #ffffff; }
+.mode-btn { background: var(–card); border: 2px solid var(–border); border-radius: 14px; cursor: pointer; padding: 16px 14px; font-size: .92rem; font-weight: 700; color: #ffffff; transition: all .18s; text-align: left; }
+.mode-btn:hover, .mode-btn.selected { border-color: var(–primary); background: rgba(79,195,247,0.18); color: #ffffff; }
 .mode-btn .m-icon { font-size: 1.4rem; display: block; margin-bottom: 6px; }
 
 .op-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
-.op-btn { background: var(–card2); border: 2px solid var(–border); border-radius: 12px; cursor: pointer; padding: 12px 6px; font-size: .9rem; font-weight: 700; color: var(–text); transition: all .18s; text-align: center; }
-.op-btn:hover, .op-btn.selected { color: #ffffff; border-color: var(–primary); background: rgba(79,195,247,.15); }
+.op-btn { background: var(–card); border: 2px solid var(–border); border-radius: 12px; cursor: pointer; padding: 12px 6px; font-size: .9rem; font-weight: 700; color: #ffffff; transition: all .18s; text-align: center; }
+.op-btn:hover, .op-btn.selected { color: #ffffff; border-color: var(–primary); background: rgba(79,195,247,0.22); }
 
 .start-row { display: flex; gap: 10px; margin-top: 22px; }
 
@@ -117,7 +115,7 @@
 .timer-pill.urgent { color: var(–danger); animation: pulse .5s infinite; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
-.progress-bar { width: 100%; max-width: 480px; height: 5px; background: var(–card2); border-radius: 3px; margin-bottom: 22px; overflow: hidden; }
+.progress-bar { width: 100%; max-width: 480px; height: 5px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-bottom: 22px; overflow: hidden; }
 .progress-fill { height: 100%; border-radius: 3px; background: var(–pgrad); transition: width .3s; }
 
 .question-card { background: var(–card); border: 1px solid var(–border); border-radius: 22px; padding: 36px 40px; text-align: center; width: 100%; max-width: 480px; margin-bottom: 20px; }
@@ -125,7 +123,7 @@
 .question-text { font-size: 3.2rem; font-weight: 900; letter-spacing: 3px; color: #ffffff; }
 .question-text .op { color: var(–primary); }
 
-.answer-input { background: var(–card2); border: 3px solid var(–primary); border-radius: 16px; color: #ffffff; font-size: 2.4rem; font-weight: 900; padding: 14px; text-align: center; width: 170px; outline: none; transition: border-color .2s; }
+.answer-input { background: rgba(13,27,62,0.8); border: 3px solid var(–primary); border-radius: 16px; color: #ffffff; font-size: 2.4rem; font-weight: 900; padding: 14px; text-align: center; width: 170px; outline: none; transition: border-color .2s; }
 .answer-input.wrong   { border-color: var(–danger); animation: shake .3s; }
 .answer-input.correct { border-color: var(–success); }
 @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
@@ -135,12 +133,12 @@
 .feedback.wrong   { color: var(–danger); }
 
 /* ══ WRONG OVERLAY ══ */
-.wrong-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(8,18,32,.88); align-items: center; justify-content: center; flex-direction: column; backdrop-filter: blur(4px); }
+.wrong-overlay { display: none; position: fixed; inset: 0; z-index: 200; background: rgba(5,10,25,.88); align-items: center; justify-content: center; flex-direction: column; backdrop-filter: blur(4px); }
 .wrong-overlay.show { display: flex; }
-.wo-card { background: var(–card); border: 2px solid var(–danger); border-radius: 24px; padding: 32px 36px; text-align: center; width: 88%; max-width: 320px; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 0 40px rgba(239,83,80,.2); }
+.wo-card { background: rgba(13,27,62,0.95); border: 2px solid var(–danger); border-radius: 24px; padding: 32px 36px; text-align: center; width: 88%; max-width: 320px; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 0 40px rgba(239,83,80,.25); }
 .wo-icon { font-size: 2rem; }
 .wo-label { font-size: .95rem; color: var(–muted); font-weight: 600; }
-.wo-answer-box { background: rgba(239,83,80,.12); border: 2px solid var(–danger); border-radius: 14px; padding: 12px 32px; font-size: 2.4rem; font-weight: 900; color: #ffffff; width: 100%; }
+.wo-answer-box { background: rgba(239,83,80,.15); border: 2px solid var(–danger); border-radius: 14px; padding: 12px 32px; font-size: 2.4rem; font-weight: 900; color: #ffffff; width: 100%; }
 .wo-ring-wrap { position: relative; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; }
 .wo-ring-wrap svg { position: absolute; inset: 0; }
 .wo-ring-num { font-size: 1.3rem; font-weight: 900; color: var(–danger); position: relative; z-index: 1; }
@@ -152,7 +150,7 @@
 .result-score { font-size: 4rem; font-weight: 900; color: var(–primary); }
 .result-sub   { color: var(–muted); margin: 6px 0 20px; font-size: .85rem; }
 .stats-row { display: flex; justify-content: center; gap: 14px; margin-bottom: 20px; flex-wrap: wrap; }
-.stat-box { background: var(–card2); border: 1px solid var(–border); border-radius: 12px; padding: 12px 16px; }
+.stat-box { background: rgba(13,27,62,0.8); border: 1px solid var(–border); border-radius: 12px; padding: 12px 16px; }
 .stat-box .s-val { font-size: 1.4rem; font-weight: 900; color: #ffffff; }
 .stat-box .s-lbl { font-size: .7rem; color: var(–muted); margin-top: 2px; }
 .new-badge { background: linear-gradient(135deg,#e65100,#ffd54f); color: #000; font-size: .72rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 10px; }
@@ -161,9 +159,9 @@
 .lb-card { background: var(–card); border: 1px solid var(–border); border-radius: 22px; padding: 26px; width: 100%; max-width: 460px; }
 .lb-title { font-size: 1.4rem; font-weight: 900; color: var(–accent); margin-bottom: 16px; text-align: center; }
 .lb-filters { display: flex; gap: 7px; flex-wrap: wrap; justify-content: center; margin-bottom: 16px; }
-.lb-filter { background: var(–card2); border: 1px solid var(–border); border-radius: 20px; color: var(–muted); cursor: pointer; font-size: .76rem; font-weight: 600; padding: 5px 12px; transition: all .18s; }
+.lb-filter { background: rgba(13,27,62,0.8); border: 1px solid var(–border); border-radius: 20px; color: var(–muted); cursor: pointer; font-size: .76rem; font-weight: 600; padding: 5px 12px; transition: all .18s; }
 .lb-filter.active { background: var(–primary); border-color: var(–primary); color: #000; font-weight: 800; }
-.lb-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(–border); }
+.lb-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .lb-row:last-child { border-bottom: none; }
 .lb-rank { font-size: 1.1rem; font-weight: 900; width: 28px; text-align: center; }
 .lb-rank.gold   { color: #ffd54f; }
@@ -198,7 +196,7 @@
     <div class="wo-answer-box" id="woAnswer">—</div>
     <div class="wo-ring-wrap">
       <svg viewBox="0 0 54 54" width="54" height="54">
-        <circle cx="27" cy="27" r="22" fill="none" stroke="#1e3350" stroke-width="5"/>
+        <circle cx="27" cy="27" r="22" fill="none" stroke="rgba(13,27,62,0.9)" stroke-width="5"/>
         <circle id="woRing" cx="27" cy="27" r="22" fill="none" stroke="#ef5350" stroke-width="5"
           stroke-dasharray="138" stroke-dashoffset="0" stroke-linecap="round"
           transform="rotate(-90 27 27)" style="transition:stroke-dashoffset .04s linear"/>
@@ -344,45 +342,31 @@
 </div>
 
 <script>
-// ── AVATARS & COLOURS ──
 const AVATARS = ['🐱','🐶','🦊','🐸','🐼','🐯','🦁','🐨','🐻','🐷'];
 const COLORS  = ['#4fc3f7','#ef5350','#66bb6a','#ffd54f','#ab47bc','#ffa726','#26c6da','#ec407a'];
 
-// ── STORAGE ──
-function getPlayers() { try { return JSON.parse(localStorage.getItem('asPlayers') || '[]'); } catch(e) { return []; } }
-function savePlayers(p) { localStorage.setItem('asPlayers', JSON.stringify(p)); }
-function getLB()  { try { return JSON.parse(localStorage.getItem('asLB2') || '[]'); } catch(e) { return []; } }
-function saveLB(d) { localStorage.setItem('asLB2', JSON.stringify(d)); }
+function getPlayers(){ try{ return JSON.parse(localStorage.getItem('asPlayers')||'[]'); }catch(e){ return []; } }
+function savePlayers(p){ localStorage.setItem('asPlayers',JSON.stringify(p)); }
+function getLB(){ try{ return JSON.parse(localStorage.getItem('asLB2')||'[]'); }catch(e){ return []; } }
+function saveLB(d){ localStorage.setItem('asLB2',JSON.stringify(d)); }
 
-// ── GAME STATE ──
-let playerName = '', difficulty = 'easy', operation = 'both', mode = 'fixed';
-let score = 0, correct = 0, wrong = 0, qIndex = 0, totalQs = 20, currentAnswer = 0;
-let gameActive = false, timerInterval = null, timeLeft = 120, wrongLocked = false;
+let playerName='', difficulty='easy', operation='both', mode='fixed';
+let score=0, correct=0, wrong=0, qIndex=0, totalQs=20, currentAnswer=0;
+let gameActive=false, timerInterval=null, timeLeft=120, wrongLocked=false;
 
-// ── SCREENS ──
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
+function showScreen(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); }
 
-// ── HOME: RENDER PLAYERS ──
-function renderPlayers() {
-  const players = getPlayers();
-  const lb = getLB();
-  const list = document.getElementById('playerList');
-  if (!players.length) {
-    list.innerHTML = '<div class="no-players">No players yet — add one above! 👆</div>';
-    document.getElementById('playBtn').disabled = true;
-    return;
-  }
-  list.innerHTML = players.map(p => {
-    const pScores = lb.filter(e => e.player === p.name);
-    const games = pScores.length;
-    const best  = games ? Math.max(...pScores.map(e => e.score)) : 0;
-    const acc   = games ? Math.round(pScores.reduce((s,e) => s + e.acc, 0) / games) : 0;
-    const sel   = p.name === playerName;
-    return `<div class="player-card${sel ? ' selected' : ''}" onclick="selectPlayer('${esc(p.name)}')">
-      <div class="player-avatar" style="background:${p.color}22; border-color:${sel ? 'var(--primary)' : p.color + '66'};">${p.avatar}</div>
+function renderPlayers(){
+  const players=getPlayers(), lb=getLB();
+  const list=document.getElementById('playerList');
+  if(!players.length){ list.innerHTML='<div class="no-players">No players yet — add one above! 👆</div>'; document.getElementById('playBtn').disabled=true; return; }
+  list.innerHTML=players.map(p=>{
+    const ps=lb.filter(e=>e.player===p.name);
+    const games=ps.length, best=games?Math.max(...ps.map(e=>e.score)):0;
+    const acc=games?Math.round(ps.reduce((s,e)=>s+e.acc,0)/games):0;
+    const sel=p.name===playerName;
+    return `<div class="player-card${sel?' selected':''}" onclick="selectPlayer('${esc(p.name)}')">
+      <div class="player-avatar" style="background:${p.color}22;border-color:${sel?'var(--primary)':p.color+'55'};">${p.avatar}</div>
       <div class="player-info">
         <div class="player-name-text">${esc(p.name)}</div>
         <div class="player-stats">🎮 ${games} games · 🎯 ${acc}% · ⭐ ${best}</div>
@@ -391,276 +375,239 @@ function renderPlayers() {
       <button class="btn-delete" onclick="deletePlayer(event,'${esc(p.name)}')">🗑️</button>
     </div>`;
   }).join('');
-  document.getElementById('playBtn').disabled = !playerName;
+  document.getElementById('playBtn').disabled=!playerName;
 }
 
-function addPlayer() {
-  const inp = document.getElementById('addInput');
-  const name = inp.value.trim();
-  if (!name) return;
-  const players = getPlayers();
-  if (players.find(p => p.name.toLowerCase() === name.toLowerCase())) { inp.value = ''; return; }
-  const idx = players.length;
-  players.push({ name, avatar: AVATARS[idx % AVATARS.length], color: COLORS[idx % COLORS.length] });
+function addPlayer(){
+  const inp=document.getElementById('addInput'), name=inp.value.trim();
+  if(!name) return;
+  const players=getPlayers();
+  if(players.find(p=>p.name.toLowerCase()===name.toLowerCase())){ inp.value=''; return; }
+  const idx=players.length;
+  players.push({name, avatar:AVATARS[idx%AVATARS.length], color:COLORS[idx%COLORS.length]});
   savePlayers(players);
-  if (!playerName) playerName = name;
-  inp.value = '';
-  renderPlayers();
+  if(!playerName) playerName=name;
+  inp.value=''; renderPlayers();
 }
 
-function selectPlayer(name) {
-  playerName = name;
-  renderPlayers();
-}
+function selectPlayer(name){ playerName=name; renderPlayers(); }
 
-function deletePlayer(e, name) {
+function deletePlayer(e,name){
   e.stopPropagation();
-  if (!confirm(`Delete player "${name}"? Their scores will remain on the leaderboard.`)) return;
-  let players = getPlayers().filter(p => p.name !== name);
+  if(!confirm(`Delete player "${name}"?`)) return;
+  let players=getPlayers().filter(p=>p.name!==name);
   savePlayers(players);
-  if (playerName === name) playerName = players.length ? players[0].name : '';
+  if(playerName===name) playerName=players.length?players[0].name:'';
   renderPlayers();
 }
 
-function goToMenu() {
-  if (!playerName) return;
-  document.getElementById('menuPlayerName').textContent = playerName;
+function goToMenu(){
+  if(!playerName) return;
+  document.getElementById('menuPlayerName').textContent=playerName;
   showScreen('menuScreen');
 }
 
-document.getElementById('addInput').addEventListener('keydown', e => { if (e.key === 'Enter') addPlayer(); });
+document.getElementById('addInput').addEventListener('keydown',e=>{ if(e.key==='Enter') addPlayer(); });
 
-// ── MENU SELECTIONS ──
-function selectDiff(d, btn) {
-  difficulty = d;
-  document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active-diff'));
+function selectDiff(d,btn){
+  difficulty=d;
+  document.querySelectorAll('.diff-btn').forEach(b=>b.classList.remove('active-diff'));
   btn.classList.add('active-diff');
 }
-function selectMode(m) {
-  mode = m;
-  document.getElementById('modeFixedBtn').classList.toggle('selected', m === 'fixed');
-  document.getElementById('modeTimedBtn').classList.toggle('selected', m === 'timed');
+function selectMode(m){
+  mode=m;
+  document.getElementById('modeFixedBtn').classList.toggle('selected',m==='fixed');
+  document.getElementById('modeTimedBtn').classList.toggle('selected',m==='timed');
 }
-function selectOp(o) {
-  operation = o;
-  document.getElementById('opAddBtn').classList.toggle('selected', o === 'addition');
-  document.getElementById('opBothBtn').classList.toggle('selected', o === 'both');
-  document.getElementById('opSubBtn').classList.toggle('selected', o === 'subtraction');
-}
-
-// ── QUESTION GENERATOR ──
-function genQuestion() {
-  const ops = operation === 'both' ? ['+','-'] : operation === 'addition' ? ['+'] : ['-'];
-  const op  = ops[Math.floor(Math.random() * ops.length)];
-  let a, b;
-  if (difficulty === 'easy') {
-    a = Math.floor(Math.random() * 9) + 1;
-    b = Math.floor(Math.random() * 9) + 1;
-  } else if (difficulty === 'medium') {
-    a = Math.floor(Math.random() * 15) + 1;
-    b = Math.floor(Math.random() * (20 - a)) + 1;
-  } else if (difficulty === 'hard') {
-    const t = Math.floor(Math.random() * 31) + 20;
-    a = Math.floor(Math.random() * (t - 1)) + 1; b = t - a;
-  } else {
-    const t = Math.floor(Math.random() * 51) + 50;
-    a = Math.floor(Math.random() * (t - 1)) + 1; b = t - a;
-  }
-  if (op === '-' && a < b) { let t = a; a = b; b = t; }
-  return { a, b, op, ans: op === '+' ? a + b : a - b };
+function selectOp(o){
+  operation=o;
+  document.getElementById('opAddBtn').classList.toggle('selected',o==='addition');
+  document.getElementById('opBothBtn').classList.toggle('selected',o==='both');
+  document.getElementById('opSubBtn').classList.toggle('selected',o==='subtraction');
 }
 
-// ── START GAME ──
-function startGame() {
-  score = 0; correct = 0; wrong = 0; qIndex = 0;
-  gameActive = true; wrongLocked = false;
-  document.getElementById('gPlayerName').textContent = playerName;
-  document.getElementById('gScore').textContent = '0';
-  document.getElementById('feedback').textContent = '';
-  document.getElementById('feedback').className = 'feedback';
+function genQuestion(){
+  const ops=operation==='both'?['+','-']:operation==='addition'?['+']: ['-'];
+  const op=ops[Math.floor(Math.random()*ops.length)];
+  let a,b;
+  if(difficulty==='easy'){ a=Math.floor(Math.random()*9)+1; b=Math.floor(Math.random()*9)+1; }
+  else if(difficulty==='medium'){ a=Math.floor(Math.random()*15)+1; b=Math.floor(Math.random()*(20-a))+1; }
+  else if(difficulty==='hard'){ const t=Math.floor(Math.random()*31)+20; a=Math.floor(Math.random()*(t-1))+1; b=t-a; }
+  else{ const t=Math.floor(Math.random()*51)+50; a=Math.floor(Math.random()*(t-1))+1; b=t-a; }
+  if(op==='-'&&a<b){ let t=a;a=b;b=t; }
+  return{a,b,op,ans:op==='+'?a+b:a-b};
+}
+
+function startGame(){
+  score=0; correct=0; wrong=0; qIndex=0; gameActive=true; wrongLocked=false;
+  document.getElementById('gPlayerName').textContent=playerName;
+  document.getElementById('gScore').textContent='0';
+  document.getElementById('feedback').textContent='';
+  document.getElementById('feedback').className='feedback';
   showScreen('gameScreen');
-  if (mode === 'timed') {
-    timeLeft = 120; totalQs = 99999;
-    timerInterval = setInterval(tickTimer, 1000);
-    document.getElementById('timerPill').textContent = '2:00';
-    document.getElementById('qNum').textContent = 'Blitz Mode!';
+  if(mode==='timed'){
+    timeLeft=120; totalQs=99999;
+    timerInterval=setInterval(tickTimer,1000);
+    document.getElementById('timerPill').textContent='2:00';
+    document.getElementById('qNum').textContent='Blitz Mode!';
   } else {
-    totalQs = 20;
-    document.getElementById('timerPill').textContent = '—';
+    totalQs=20;
+    document.getElementById('timerPill').textContent='—';
   }
   nextQuestion();
-  setTimeout(() => document.getElementById('answerInput').focus(), 60);
+  setTimeout(()=>document.getElementById('answerInput').focus(),60);
 }
 
-function tickTimer() {
+function tickTimer(){
   timeLeft--;
-  const m = Math.floor(timeLeft / 60), s = timeLeft % 60;
-  const pill = document.getElementById('timerPill');
-  pill.textContent = `${m}:${s.toString().padStart(2,'0')}`;
-  pill.classList.toggle('urgent', timeLeft <= 15);
-  if (timeLeft <= 0) endGame();
+  const m=Math.floor(timeLeft/60),s=timeLeft%60;
+  const pill=document.getElementById('timerPill');
+  pill.textContent=`${m}:${s.toString().padStart(2,'0')}`;
+  pill.classList.toggle('urgent',timeLeft<=15);
+  if(timeLeft<=0) endGame();
 }
 
-function nextQuestion() {
-  const q = genQuestion();
-  currentAnswer = q.ans;
-  const sym = q.op === '+' ? '<span class="op">+</span>' : '<span class="op">−</span>';
-  document.getElementById('questionText').innerHTML = `${q.a} ${sym} ${q.b} = ?`;
-  const inp = document.getElementById('answerInput');
-  inp.value = ''; inp.className = 'answer-input';
-  document.getElementById('feedback').textContent = '';
-  document.getElementById('feedback').className = 'feedback';
-  if (mode === 'fixed') {
-    document.getElementById('qNum').textContent = `Question ${qIndex + 1} of ${totalQs}`;
-    document.getElementById('progressFill').style.width = (qIndex / totalQs * 100) + '%';
+function nextQuestion(){
+  const q=genQuestion(); currentAnswer=q.ans;
+  const sym=q.op==='+'?'<span class="op">+</span>':'<span class="op">−</span>';
+  document.getElementById('questionText').innerHTML=`${q.a} ${sym} ${q.b} = ?`;
+  const inp=document.getElementById('answerInput');
+  inp.value=''; inp.className='answer-input';
+  document.getElementById('feedback').textContent='';
+  document.getElementById('feedback').className='feedback';
+  if(mode==='fixed'){
+    document.getElementById('qNum').textContent=`Question ${qIndex+1} of ${totalQs}`;
+    document.getElementById('progressFill').style.width=(qIndex/totalQs*100)+'%';
   } else {
-    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressFill').style.width='0%';
   }
-  setTimeout(() => inp.focus(), 50);
+  setTimeout(()=>inp.focus(),50);
 }
 
-// ── ANSWER HANDLING ──
-document.getElementById('answerInput').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && !wrongLocked && gameActive) checkAnswer();
+document.getElementById('answerInput').addEventListener('keydown',function(e){
+  if(e.key==='Enter'&&!wrongLocked&&gameActive) checkAnswer();
 });
-document.getElementById('answerInput').addEventListener('input', function() {
-  if (!wrongLocked && gameActive && this.value !== '' && this.value !== '-') {
-    const val = parseInt(this.value);
-    if (!isNaN(val) && Math.abs(val).toString().length >= currentAnswer.toString().length) checkAnswer();
+document.getElementById('answerInput').addEventListener('input',function(){
+  if(!wrongLocked&&gameActive&&this.value!==''&&this.value!=='-'){
+    const val=parseInt(this.value);
+    if(!isNaN(val)&&Math.abs(val).toString().length>=currentAnswer.toString().length) checkAnswer();
   }
 });
 
-function checkAnswer() {
-  if (wrongLocked) return;
-  const val = parseInt(document.getElementById('answerInput').value);
-  if (isNaN(val)) return;
-  if (val === currentAnswer) {
-    correct++; score += diffPoints();
-    document.getElementById('gScore').textContent = score;
-    document.getElementById('answerInput').className = 'answer-input correct';
-    document.getElementById('feedback').textContent = '✓ Correct!';
-    document.getElementById('feedback').className = 'feedback correct';
+function checkAnswer(){
+  if(wrongLocked) return;
+  const val=parseInt(document.getElementById('answerInput').value);
+  if(isNaN(val)) return;
+  if(val===currentAnswer){
+    correct++; score+=diffPoints();
+    document.getElementById('gScore').textContent=score;
+    document.getElementById('answerInput').className='answer-input correct';
+    document.getElementById('feedback').textContent='✓ Correct!';
+    document.getElementById('feedback').className='feedback correct';
     qIndex++;
-    if (mode === 'fixed' && qIndex >= totalQs) { setTimeout(endGame, 400); return; }
-    setTimeout(nextQuestion, 400);
+    if(mode==='fixed'&&qIndex>=totalQs){ setTimeout(endGame,400); return; }
+    setTimeout(nextQuestion,400);
   } else {
     wrong++;
-    document.getElementById('answerInput').className = 'answer-input wrong';
+    document.getElementById('answerInput').className='answer-input wrong';
     showWrongOverlay();
   }
 }
 
-function diffPoints() { return { easy:1, medium:2, hard:3, extreme:5 }[difficulty]; }
+function diffPoints(){ return{easy:1,medium:2,hard:3,extreme:5}[difficulty]; }
 
-// ── WRONG OVERLAY ──
-function showWrongOverlay() {
-  wrongLocked = true;
-  document.getElementById('woAnswer').textContent = currentAnswer;
-  const ov = document.getElementById('wrongOverlay');
+function showWrongOverlay(){
+  wrongLocked=true;
+  document.getElementById('woAnswer').textContent=currentAnswer;
+  const ov=document.getElementById('wrongOverlay');
   ov.classList.add('show');
-  const ring = document.getElementById('woRing');
-  const numEl = document.getElementById('woCountNum');
-  const total = 138, dur = 2000, step = 40;
-  let elapsed = 0;
-  ring.style.strokeDashoffset = 0;
-  numEl.textContent = '2';
-  const iv = setInterval(() => {
-    elapsed += step;
-    ring.style.strokeDashoffset = (elapsed / dur) * total;
-    numEl.textContent = Math.max(0, Math.ceil((dur - elapsed) / 1000));
-    if (elapsed >= dur) {
-      clearInterval(iv);
-      ov.classList.remove('show');
-      wrongLocked = false;
+  const ring=document.getElementById('woRing'), numEl=document.getElementById('woCountNum');
+  const total=138,dur=2000,step=40; let elapsed=0;
+  ring.style.strokeDashoffset=0; numEl.textContent='2';
+  const iv=setInterval(()=>{
+    elapsed+=step;
+    ring.style.strokeDashoffset=(elapsed/dur)*total;
+    numEl.textContent=Math.max(0,Math.ceil((dur-elapsed)/1000));
+    if(elapsed>=dur){
+      clearInterval(iv); ov.classList.remove('show'); wrongLocked=false;
       qIndex++;
-      if (mode === 'fixed' && qIndex >= totalQs) { endGame(); return; }
+      if(mode==='fixed'&&qIndex>=totalQs){ endGame(); return; }
       nextQuestion();
     }
-  }, step);
+  },step);
 }
 
-// ── END GAME ──
-function endGame() {
-  clearInterval(timerInterval);
-  gameActive = false;
+function endGame(){
+  clearInterval(timerInterval); gameActive=false;
   document.getElementById('wrongOverlay').classList.remove('show');
-  const total = correct + wrong;
-  const acc = total ? Math.round(correct / total * 100) : 0;
-  document.getElementById('rCorrect').textContent = correct;
-  document.getElementById('rWrong').textContent   = wrong;
-  document.getElementById('rAccuracy').textContent = acc + '%';
-  document.getElementById('resultScore').textContent = score;
-  document.getElementById('resultSub').textContent =
-    `${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} · ${mode === 'fixed' ? 'Fixed' : '2-Min Blitz'} · ${opLabel()}`;
-  let emoji, title;
-  if (acc === 100)      { emoji = '🏆'; title = 'Perfect!'; }
-  else if (acc >= 80)   { emoji = '🌟'; title = 'Excellent!'; }
-  else if (acc >= 60)   { emoji = '👍'; title = 'Good Job!'; }
-  else                  { emoji = '💪'; title = 'Keep Practising!'; }
-  document.getElementById('resultEmoji').textContent = emoji;
-  document.getElementById('resultTitle').textContent = title;
-  const isNew = saveLBEntry(score, acc);
-  document.getElementById('newBadge').innerHTML = isNew ? '<div class="new-badge">🏆 New High Score!</div>' : '';
+  const total=correct+wrong, acc=total?Math.round(correct/total*100):0;
+  document.getElementById('rCorrect').textContent=correct;
+  document.getElementById('rWrong').textContent=wrong;
+  document.getElementById('rAccuracy').textContent=acc+'%';
+  document.getElementById('resultScore').textContent=score;
+  document.getElementById('resultSub').textContent=
+    `${difficulty.charAt(0).toUpperCase()+difficulty.slice(1)} · ${mode==='fixed'?'Fixed':'2-Min Blitz'} · ${opLabel()}`;
+  let emoji,title;
+  if(acc===100){emoji='🏆';title='Perfect!';}
+  else if(acc>=80){emoji='🌟';title='Excellent!';}
+  else if(acc>=60){emoji='👍';title='Good Job!';}
+  else{emoji='💪';title='Keep Practising!';}
+  document.getElementById('resultEmoji').textContent=emoji;
+  document.getElementById('resultTitle').textContent=title;
+  const isNew=saveLBEntry(score,acc);
+  document.getElementById('newBadge').innerHTML=isNew?'<div class="new-badge">🏆 New High Score!</div>':'';
   showScreen('resultScreen');
 }
 
-function opLabel() { return { addition:'Add Only', subtraction:'Sub Only', both:'Both' }[operation]; }
+function opLabel(){ return{addition:'Add Only',subtraction:'Sub Only',both:'Both'}[operation]; }
 
-function saveLBEntry(s, acc) {
-  const lb = getLB(), key = `${difficulty}-${mode}`;
-  const best = lb.filter(e => e.player === playerName && e.key === key).reduce((m,e) => Math.max(m, e.score), -1);
-  lb.push({ player: playerName, score: s, correct, wrong, acc, difficulty, mode, operation, key, date: Date.now() });
-  lb.sort((a,b) => b.score - a.score);
-  saveLB(lb.slice(0, 200));
-  return s > best;
+function saveLBEntry(s,acc){
+  const lb=getLB(), key=`${difficulty}-${mode}`;
+  const best=lb.filter(e=>e.player===playerName&&e.key===key).reduce((m,e)=>Math.max(m,e.score),-1);
+  lb.push({player:playerName,score:s,correct,wrong,acc,difficulty,mode,operation,key,date:Date.now()});
+  lb.sort((a,b)=>b.score-a.score); saveLB(lb.slice(0,200)); return s>best;
 }
 
-// ── LEADERBOARD ──
-let lbFilter = 'all';
-function showLeaderboard() {
-  lbFilter = 'all';
-  document.querySelectorAll('.lb-filter').forEach(b => b.classList.remove('active'));
+let lbFilter='all';
+function showLeaderboard(){
+  lbFilter='all';
+  document.querySelectorAll('.lb-filter').forEach(b=>b.classList.remove('active'));
   document.querySelector('.lb-filter').classList.add('active');
   renderLB(); showScreen('lbScreen');
 }
-function filterLB(f, btn) {
-  lbFilter = f;
-  document.querySelectorAll('.lb-filter').forEach(b => b.classList.remove('active'));
+function filterLB(f,btn){
+  lbFilter=f;
+  document.querySelectorAll('.lb-filter').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active'); renderLB();
 }
-function renderLB() {
-  let lb = getLB();
-  if (lbFilter !== 'all') lb = lb.filter(e => e.difficulty === lbFilter || e.mode === lbFilter);
-  const seen = {}, top = [];
-  for (const e of lb) { const k = e.player + e.key; if (!seen[k]) { seen[k] = true; top.push(e); } }
-  const list = document.getElementById('lbList');
-  if (!top.length) { list.innerHTML = '<div class="lb-empty">No scores yet — be the first! 🚀</div>'; return; }
-  const ranks = ['🥇','🥈','🥉'], rc = ['gold','silver','bronze'];
-  list.innerHTML = top.slice(0, 15).map((e,i) => `
+function renderLB(){
+  let lb=getLB();
+  if(lbFilter!=='all') lb=lb.filter(e=>e.difficulty===lbFilter||e.mode===lbFilter);
+  const seen={},top=[];
+  for(const e of lb){ const k=e.player+e.key; if(!seen[k]){seen[k]=true;top.push(e);} }
+  const list=document.getElementById('lbList');
+  if(!top.length){list.innerHTML='<div class="lb-empty">No scores yet — be the first! 🚀</div>';return;}
+  const ranks=['🥇','🥈','🥉'],rc=['gold','silver','bronze'];
+  list.innerHTML=top.slice(0,15).map((e,i)=>`
     <div class="lb-row">
-      <div class="lb-rank ${rc[i] || ''}">${ranks[i] || i+1}</div>
+      <div class="lb-rank ${rc[i]||''}">${ranks[i]||i+1}</div>
       <div style="flex:1">
         <div class="lb-name">${esc(e.player)}</div>
-        <div class="lb-detail">${e.mode === 'timed' ? 'Blitz' : 'Fixed'} · ${opShort(e.operation)} · ${e.acc}% acc</div>
+        <div class="lb-detail">${e.mode==='timed'?'Blitz':'Fixed'} · ${opShort(e.operation)} · ${e.acc}% acc</div>
       </div>
       <span class="lb-badge ${e.difficulty}">${e.difficulty}</span>
       <div class="lb-score">${e.score}</div>
     </div>`).join('');
 }
-function opShort(o) { return { addition:'➕', subtraction:'➖', both:'➕➖' }[o] || o; }
-function esc(s) { return s.replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function clearLB() { if (confirm('Clear all scores?')) { saveLB([]); renderLB(); } }
-function quitGame() {
-  clearInterval(timerInterval); gameActive = false;
-  document.getElementById('wrongOverlay').classList.remove('show');
-  showScreen('menuScreen');
-}
+function opShort(o){ return{addition:'➕',subtraction:'➖',both:'➕➖'}[o]||o; }
+function esc(s){ return s.replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function clearLB(){ if(confirm('Clear all scores?')){ saveLB([]); renderLB(); } }
+function quitGame(){ clearInterval(timerInterval); gameActive=false; document.getElementById('wrongOverlay').classList.remove('show'); showScreen('menuScreen'); }
 
-// ── INIT ──
-(function init() {
+(function init(){
   renderPlayers();
-  const p = getPlayers();
-  if (p.length) { playerName = p[0].name; renderPlayers(); }
+  const p=getPlayers();
+  if(p.length){ playerName=p[0].name; renderPlayers(); }
 })();
 </script>
 
