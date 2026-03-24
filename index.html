@@ -337,10 +337,10 @@ const CHALLENGE_TIME = 120;
 // Difficulty config: { qs, perQ seconds, mult, minA, maxA, minB, maxB, minAns, maxAns }
 // We generate a,b then compute answer; for subtraction ensure a>=b always
 const DIFF_CFG = {
-  easy:    { qs:10, perQ:15, mult:1 },
-  medium:  { qs:12, perQ:12, mult:1.5 },
-  hard:    { qs:14, perQ:10, mult:2 },
-  extreme: { qs:16, perQ:8,  mult:2.5 }
+  easy:    { qs:20, perQ:15, mult:1 },
+  medium:  { qs:20, perQ:12, mult:1.5 },
+  hard:    { qs:20, perQ:10, mult:2 },
+  extreme: { qs:20, perQ:8,  mult:2.5 }
 };
 
 function loadData() { try { return JSON.parse(localStorage.getItem('asgPlayers') || '{}'); } catch(e){ return {}; } }
